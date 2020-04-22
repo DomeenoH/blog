@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://me.dominoh.com</id>
     <title>多米诺好强啊</title>
-    <updated>2020-04-22T08:46:10.361Z</updated>
+    <updated>2020-04-22T09:15:38.435Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://me.dominoh.com"/>
     <link rel="self" href="https://me.dominoh.com/atom.xml"/>
@@ -10,4 +10,28 @@
     <logo>https://me.dominoh.com/images/avatar.png</logo>
     <icon>https://me.dominoh.com/favicon.ico</icon>
     <rights>All rights reserved 2020, 多米诺好强啊</rights>
+    <entry>
+        <title type="html"><![CDATA[能不能好好说话？——拼音首字母缩写释义工具]]></title>
+        <id>https://me.dominoh.com/post/neng-bu-neng-hao-hao-shuo-hua-pin-yin-shou-zi-mu-suo-xie-shi-yi-gong-ju/</id>
+        <link href="https://me.dominoh.com/post/neng-bu-neng-hao-hao-shuo-hua-pin-yin-shou-zi-mu-suo-xie-shi-yi-gong-ju/">
+        </link>
+        <updated>2020-04-22T09:00:05.000Z</updated>
+        <summary type="html"><![CDATA[<p><em>一个过于沙雕的项目，但是真的好好用哈哈哈哈哈嗝</em></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><em>一个过于沙雕的项目，但是真的好好用哈哈哈哈哈嗝</em></p>
+<!-- more -->
+<h3 id="center项目地址戳这里center"><center><strong><a href="https://lab.magiconch.com/nbnhhsh/" title="项目地址戳这里">项目地址戳这里</a></strong></center></h3>
+<p>装上之后划词就可以翻译了，这里给个同样沙雕的例文：</p>
+<blockquote>
+<p>草这个tmd网络世界我真的太恨缩写了。</p>
+</blockquote>
+<blockquote>
+<p>随便点开一条微博，艺人名字要缩写，gzs工作室也要缩写，gc广场他妈的也是缩写，hgr老子猜了老半天，百度一下才知道是韩国人，拳头硬了。<br>
+讲个话开头也缩写，srds虽然但是，yjgj有句港句，bbl求求了。（这个谁看得出来你妈的）<br>
+夸人骂人也都缩写，yjjc一骑绝尘，wdcc弯道超车，yygq阴阳怪气，myss美颜盛世，rnb我也猜了半天，最后被告知是really牛b的意思，哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈又硬了呢。<br>
+最要命的还不是这些，我刚刚看到网友评价什么什么他jb的什么，我以为jb就是jb的意思吧，但联系上下文句子又读不通，想了一分钟，哇，原来jb是姜滨的缩写啊！<br>
+jb＝姜滨，我离开了。</p>
+</blockquote>
+]]></content>
+    </entry>
 </feed>
