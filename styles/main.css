@@ -2179,13 +2179,13 @@ body {
       border-radius: 10px;
     }
       .site-meta {
-        background: #343a40 !important;
+        background: #000 !important;
       }
       .head-top-line {
-        background: #343a40 !important;
+        background: #000 !important;
       }
     .brand {
-      background: #343a40fe;
+      background: #000000fe;
     }
     .main-title {
       color: #FFF;

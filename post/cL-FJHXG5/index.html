@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="多米诺">
 <meta name="description" content="文艺复兴，整点博客">
 <meta name="theme-color" content="#000">
-<title>多米诺好强啊</title>
+<title>markdown让文字居中和带颜色 | 多米诺好强啊</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1587563920546">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -35,6 +35,8 @@
 </script>
 
 
+    <meta name="description" content="markdown让文字居中和带颜色" />
+    <meta name="keywords" content="转载,学习" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -142,8 +144,23 @@
       
       <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
-          <div id="sidebarMeta" class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -253,27 +270,92 @@
   </div>
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-          <div class="section-box gemini">
-            <section class="section  posts-expand slide-down-in">
-              
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://me.dominoh.com/post/cL-FJHXG5/">
       markdown让文字居中和带颜色
@@ -317,115 +399,110 @@
       <span>371<span class="pc-show">字数</span></span>
     </span>
     
-  </div>
-</header>
-      <div class="post-body">
-        
-          
-          
-            
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://me.dominoh.com/post/cL-FJHXG5/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
       
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://me.dominoh.com/post/neng-bu-neng-hao-hao-shuo-hua-pin-yin-shou-zi-mu-suo-xie-shi-yi-gong-ju/">
-      能不能好好说话？——拼音首字母缩写释义工具
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-04-22</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
+      
         
-          
-            <a href="https://me.dominoh.com/tag/PsTPNgIIQ/">
-              <span>学习</span>
-            </a>
-          
-        
+      
+      <span id="/post/cL-FJHXG5/" data-flag-title="markdown让文字居中和带颜色" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
       </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>295<span class="pc-show">字数</span></span>
-    </span>
     
   </div>
 </header>
-      <div class="post-body">
-        
-          
-          
-            
-            
-              <p>
-              
-            
-              <p><em>一个过于沙雕的项目，但是真的好好用哈哈哈哈哈嗝</em></p>
-
-              
-            
-          
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://me.dominoh.com/post/neng-bu-neng-hao-hao-shuo-hua-pin-yin-shou-zi-mu-suo-xie-shi-yi-gong-ju/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
+              <div class="post-body next-md-body" id="post_body">
+                <blockquote>
+<p>版权属于：bigmagic<br>
+本文链接：<br>
+https://www.cnblogs.com/bigmagic/p/3301b25e8b0b8ef8b9415379385a798c.html</p>
+</blockquote>
+<h2 id="1.说明">1.说明</h2>
+<p>本文主要叙述如何写出更加优美的markdown文档。在我们观看文档的过程中，良好的格式将会带来很大的收益。对于不同颜色的字体也并不会显得花里胡哨，只会让我们表达的内容更加的清晰。下面来具体的看一下操作的流程。</p>
+<h2 id="2.文字的居中">2. 文字的居中</h2>
+<p>对于标准的markdown文本，是不支持居中对齐的。还好markdown支持html语言，所以我们采用html语法格式即可。</p>
+<pre><code class="language-html">&lt;center&gt;这一行需要居中&lt;/center&gt;
+</code></pre>
+<p>下面就是排版后的结果</p>
+<p></p><center>这一行需要居中</center><p></p>
+<h2 id="3.文字的字体及颜色">3.文字的字体及颜色</h2>
+<h3 id="3.1字体更换">3.1 字体更换</h3>
+<p>同样我们也需要遵照其标准的语法格式</p>
+<pre><code class="language-html">&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt;
+</code></pre>
+<p>下面是测试结果</p>
+<p><font face="黑体">我是黑体字</font></p>
+<h3 id="3.2大小更换">3.2 大小更换</h3>
+<p>大小为size</p>
+<pre><code class="language-html">&lt;font face=&quot;黑体&quot; size=&quot;10&quot;&gt;我是黑体字&lt;/font&gt;
+</code></pre>
+<p><font face="黑体" size="10">我是黑体字</font></p>
+<h3 id="3.3颜色替换">3.3 颜色替换</h3>
+<p>对于html语音中，颜色是用color来表示，所以可以表示如下</p>
+<pre><code class="language-html">&lt;font color=&quot;red&quot; size=&quot;72&quot;&gt;颜色&lt;/font&gt;
+</code></pre>
+<p>效果如下</p>
+<p><font color="red" size="72">颜色</font></p>
+<h2 id="4总结">4 总结</h2>
+<p>善用markdown语法，记住markdown语法是兼容html预言的，这很重要。</p> 
+[1]: https://www.cnblogs.com/bigmagic/p/3301b25e8b0b8ef8b9415379385a798c.html "markdown让文字居中和带颜色"
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      多米诺
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://me.dominoh.com/post/cL-FJHXG5/" title="markdown让文字居中和带颜色">https://me.dominoh.com/post/cL-FJHXG5/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://me.dominoh.com/tag/NI9cB3wEk/"># 转载</a>
+    
+      <a href="https://me.dominoh.com/tag/PsTPNgIIQ/"># 学习</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
     </div>
-  </article>
-  
-              
-              
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
+    <div class="nav-next">
       
-        <li class="pagination-li pagination-active">
-            <a href="/page/../">
-              1
-            </a>
-        </li>
+        <a class="nav-pc-next" title="能不能好好说话？——拼音首字母缩写释义工具" href="https://me.dominoh.com/post/neng-bu-neng-hao-hao-shuo-hua-pin-yin-shou-zi-mu-suo-xie-shi-yi-gong-ju/">能不能好好说话？——拼音首字母缩写释义工具</a>
+        <a class="nav-mobile-next" title="能不能好好说话？——拼音首字母缩写释义工具" href="https://me.dominoh.com/post/neng-bu-neng-hao-hao-shuo-hua-pin-yin-shou-zi-mu-suo-xie-shi-yi-gong-ju/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
-    
-    
-  </ul>
+    </div>
+  </div>
 </div>
-            </section>
+              
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<script>
+new Valine({
+    el: '#vcomments' ,
+    appId: 'bTlz5XKYexx0anryWjwOtkta-gzGzoHsz',
+    appKey: 'Oiy6YjbOC3vNv3Ouflg676Na',
+    notify: 'true' === 'true', 
+    avatar:'wavatar', 
+    placeholder: '多米诺好强啊',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+});
+</script>
+
+            </div>
           </div>
         </div>
       </div>
